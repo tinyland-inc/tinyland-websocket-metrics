@@ -1,14 +1,14 @@
-/**
- * Per-path WebSocket metrics tracking connections and messages for a specific endpoint.
- */
+
+
+
 export interface PathMetrics {
 	connections: number;
 	messages: number;
 }
 
-/**
- * Aggregate WebSocket metrics across all connections and paths.
- */
+
+
+
 export interface WebSocketMetrics {
 	activeConnections: number;
 	totalConnections: number;

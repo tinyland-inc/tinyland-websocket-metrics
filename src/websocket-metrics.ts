@@ -1,9 +1,9 @@
-/**
- * WebSocket Metrics Collector
- *
- * Tracks WebSocket connection metrics for Prometheus.
- * Container-first design: metrics exposed via /api/metrics endpoint.
- */
+
+
+
+
+
+
 
 import type { PathMetrics, WebSocketMetrics } from './types.js';
 
