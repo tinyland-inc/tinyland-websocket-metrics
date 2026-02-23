@@ -13,9 +13,9 @@ describe('WebSocketMetricsCollector', () => {
 		collector = new WebSocketMetricsCollector();
 	});
 
-	// ---------------------------------------------------------------
-	// Constructor / Initial State
-	// ---------------------------------------------------------------
+	
+	
+	
 	describe('constructor', () => {
 		it('should create a fresh instance', () => {
 			expect(collector).toBeInstanceOf(WebSocketMetricsCollector);
@@ -62,9 +62,9 @@ describe('WebSocketMetricsCollector', () => {
 		});
 	});
 
-	// ---------------------------------------------------------------
-	// trackConnection
-	// ---------------------------------------------------------------
+	
+	
+	
 	describe('trackConnection', () => {
 		it('should increment activeConnections', () => {
 			collector.trackConnection('/ws');
@@ -135,9 +135,9 @@ describe('WebSocketMetricsCollector', () => {
 		});
 	});
 
-	// ---------------------------------------------------------------
-	// trackDisconnection
-	// ---------------------------------------------------------------
+	
+	
+	
 	describe('trackDisconnection', () => {
 		it('should decrement activeConnections', () => {
 			collector.trackConnection('/ws');
@@ -191,9 +191,9 @@ describe('WebSocketMetricsCollector', () => {
 		});
 	});
 
-	// ---------------------------------------------------------------
-	// trackMessageSent
-	// ---------------------------------------------------------------
+	
+	
+	
 	describe('trackMessageSent', () => {
 		it('should increment messagesSent counter', () => {
 			collector.trackMessageSent('/ws');
@@ -244,9 +244,9 @@ describe('WebSocketMetricsCollector', () => {
 		});
 	});
 
-	// ---------------------------------------------------------------
-	// trackMessageReceived
-	// ---------------------------------------------------------------
+	
+	
+	
 	describe('trackMessageReceived', () => {
 		it('should increment messagesReceived counter', () => {
 			collector.trackMessageReceived('/ws');
@@ -296,9 +296,9 @@ describe('WebSocketMetricsCollector', () => {
 		});
 	});
 
-	// ---------------------------------------------------------------
-	// trackError
-	// ---------------------------------------------------------------
+	
+	
+	
 	describe('trackError', () => {
 		it('should increment errors counter', () => {
 			collector.trackError('/ws');
@@ -328,9 +328,9 @@ describe('WebSocketMetricsCollector', () => {
 		});
 	});
 
-	// ---------------------------------------------------------------
-	// trackReconnection
-	// ---------------------------------------------------------------
+	
+	
+	
 	describe('trackReconnection', () => {
 		it('should increment reconnections counter', () => {
 			collector.trackReconnection('/ws');
@@ -357,9 +357,9 @@ describe('WebSocketMetricsCollector', () => {
 		});
 	});
 
-	// ---------------------------------------------------------------
-	// getMetrics (immutability / copy semantics)
-	// ---------------------------------------------------------------
+	
+	
+	
 	describe('getMetrics', () => {
 		it('should return a copy of the metrics', () => {
 			collector.trackConnection('/ws');
@@ -427,9 +427,9 @@ describe('WebSocketMetricsCollector', () => {
 		});
 	});
 
-	// ---------------------------------------------------------------
-	// exportPrometheus
-	// ---------------------------------------------------------------
+	
+	
+	
 	describe('exportPrometheus', () => {
 		it('should contain HELP line for websocket_active_connections', () => {
 			const output = collector.exportPrometheus();
@@ -603,9 +603,9 @@ describe('WebSocketMetricsCollector', () => {
 		});
 	});
 
-	// ---------------------------------------------------------------
-	// reset
-	// ---------------------------------------------------------------
+	
+	
+	
 	describe('reset', () => {
 		it('should zero activeConnections', () => {
 			collector.trackConnection('/ws');
@@ -679,9 +679,9 @@ describe('WebSocketMetricsCollector', () => {
 		});
 	});
 
-	// ---------------------------------------------------------------
-	// Complex sequences
-	// ---------------------------------------------------------------
+	
+	
+	
 	describe('complex sequences', () => {
 		it('should handle multiple connections and disconnections in sequence', () => {
 			collector.trackConnection('/ws');
@@ -789,9 +789,9 @@ describe('WebSocketMetricsCollector', () => {
 		});
 	});
 
-	// ---------------------------------------------------------------
-	// Singleton export
-	// ---------------------------------------------------------------
+	
+	
+	
 	describe('singleton export', () => {
 		it('should export websocketMetrics as a WebSocketMetricsCollector instance', () => {
 			expect(websocketMetrics).toBeInstanceOf(WebSocketMetricsCollector);
@@ -802,7 +802,7 @@ describe('WebSocketMetricsCollector', () => {
 			websocketMetrics.trackConnection('/singleton-test');
 			const after = websocketMetrics.getMetrics().totalConnections;
 			expect(after).toBe(before + 1);
-			// Clean up
+			
 			websocketMetrics.reset();
 		});
 
@@ -819,9 +819,9 @@ describe('WebSocketMetricsCollector', () => {
 		});
 	});
 
-	// ---------------------------------------------------------------
-	// Type exports
-	// ---------------------------------------------------------------
+	
+	
+	
 	describe('type exports', () => {
 		it('should allow creating a WebSocketMetrics-shaped object', () => {
 			const m: WebSocketMetrics = {
