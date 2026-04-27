@@ -3,3 +3,5 @@ coverage/
 node_modules/
 *.tsbuildinfo
 *.tgz
+bazel-*
+MODULE.bazel.lock
